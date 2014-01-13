@@ -31,7 +31,7 @@ class NotebookRunner(object):
         'text/plain': 'text',
         'text/html': 'html',
         'text/latex': 'latex',
-        'application/javascript': 'html',
+        'application/javascript': 'javascript',
         'image/svg+xml': 'svg',
     }
 
@@ -54,7 +54,7 @@ class NotebookRunner(object):
             os.chdir(working_dir)
 
         self.km.start_kernel(extra_arguments = args)
-        
+
         os.chdir(cwd)
 
         if platform.system() == 'Darwin':
@@ -70,9 +70,9 @@ class NotebookRunner(object):
 
         self.shell = self.kc.shell_channel
         self.iopub = self.kc.iopub_channel
-        
+
         self.nb = nb
-        
+
 
     def __del__(self):
         self.kc.stop_channels()
@@ -190,4 +190,4 @@ class NotebookRunner(object):
         Return the number of code cells in the notebook
         '''
         return sum(1 for _ in self.iter_code_cells())
-        
+
