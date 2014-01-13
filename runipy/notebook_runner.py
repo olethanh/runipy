@@ -30,7 +30,7 @@ class NotebookRunner(object):
         'text/plain': 'text',
         'text/html': 'html',
         'text/latex': 'latex',
-        'application/javascript': 'html',
+        'application/javascript': 'javascript',
     }
 
     def __init__(self, nb_in, pylab=False):
