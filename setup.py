@@ -17,7 +17,8 @@ setup(name = 'runipy',
         'ipython',
         'pyzmq',
     ],
-    packages = ['runipy', 'utils'],
+    packages = ['runipy'],
+    py_modules = ['utils'],
     entry_points = {
         'console_scripts': [
             'runipy = runipy.main:main'
