@@ -15,3 +15,18 @@ def export(name, content):
         return
 
     open(os.path.join(os.environ["NB_FILES_EXPORT_PATH"], name), "w").write(content)
+
+
+def output(name):
+    if "/" in name:
+        raise Exception("You aren't able to put a '/' in the filename")
+
+    if not isinstance(name, basestring):
+        raise Exception("The file name should be a string")
+
+    if "NB_FILES_EXPORT_PATH" not in os.environ:
+        return
+
+    return open(os.path.join(os.environ["NB_FILES_EXPORT_PATH"], name), 'wb')
+
+
