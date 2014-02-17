@@ -1,4 +1,5 @@
 import os
+from StringIO import StringIO
 
 
 def export(name, content):
@@ -25,8 +26,6 @@ def output(name):
         raise Exception("The file name should be a string")
 
     if "NB_FILES_EXPORT_PATH" not in os.environ:
-        return
+        return StringIO()
 
     return open(os.path.join(os.environ["NB_FILES_EXPORT_PATH"], name), 'wb')
-
-
