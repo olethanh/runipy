@@ -21,7 +21,6 @@ def get_base_export_url():
             path = os.environ['NB_FILES_EXPORT_URL']
     else:
         path = 'file://' + get_base_export_path()
-    print path
     return path
 
 def fn_for_export(name):
@@ -72,13 +71,11 @@ def export_csv(dataframe, csv_file_name):
     file_name = csv_file_name + ".csv"
     file_output = output(file_name)
     dataframe.to_csv(file_output, sep=';', float_format='%.3f')
-    print file_name
     return  file_name
 
 def export_excel(dataframe, excel_file_name, **kwargs):
     file_name = excel_file_name + ".xls"
     file_output = output(file_name)
     dataframe.to_excel(file_output, float_format='%.3f', **kwargs)
-    print file_name
     return  file_name
 
