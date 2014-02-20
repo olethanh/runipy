@@ -74,7 +74,7 @@ def export_csv(dataframe, csv_file_name):
     return  file_name
 
 def export_excel(dataframe, excel_file_name, **kwargs):
-    file_name = fn_for_export(excel_file_name + ".xls")
-    dataframe.to_excel(file_name, float_format='%.3f', **kwargs)
+    file_name = excel_file_name + ".xls"
+    dataframe.to_excel(fn_for_export(file_name), float_format='%.3f', **kwargs)
     return  file_name
 
