@@ -122,6 +122,9 @@ class NotebookRunner(object):
         cell['outputs'] = outs
 
         if status == 'error':
+            from pprint import pprint
+            pprint(cell['outputs'])
+            print('\n'.join(cell['outputs'][0]['traceback']))
             raise NotebookError()
 
     def iter_code_cells(self):
